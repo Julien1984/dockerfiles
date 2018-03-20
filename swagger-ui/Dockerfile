@@ -33,6 +33,7 @@ RUN chmod -R g+rwX /etc/nginx
 RUN chgrp -R 0 /var/lib/nginx
 RUN chmod -R g+rwX /var/lib/nginx
 
+USER 997
 
 EXPOSE 8080
 
