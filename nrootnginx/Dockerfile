@@ -22,6 +22,18 @@ RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 573BFD6B3D8FBC64107
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
  && ln -sf /dev/stderr /var/log/nginx/error.log
 
-EXPOSE 80 443
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY default.conf /etc/nginx/conf.d/default.conf
+COPY index.html /usr/share/nginx/html/index.html
+RUN chgrp -R 0 /var/run 
+RUN chmod -R g+rwX /var/run
+
+RUN chgrp -R 0 /usr/share/nginx/html
+RUN chmod -R g+rwX /usr/share/nginx/html
+
+RUN chgrp -R 0 /etc/nginx
+RUN chmod -R g+rwX /etc/nginx
+
+EXPOSE 8080
 
 CMD ["nginx", "-g", "daemon off;"] 
