@@ -8,7 +8,7 @@ RUN yum -y --setopt=tsflags=nodocs update && \
 
 
 ADD nginx.conf /etc/nginx/nginx.conf
-mkdir -p /usr/share/nginx/html
+RUN mkdir -p /usr/share/nginx/html
 RUN chmod -R go+rwx /usr/share/nginx/html
 
 #  for some reason nginx is still trying to create /var/log/nginx/error.log
