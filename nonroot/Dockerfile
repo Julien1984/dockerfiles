@@ -13,6 +13,10 @@ ADD nginx.conf /etc/nginx/nginx.conf
 #  even if error_log /dev/stderr is set
 RUN chmod -R go+rwx /var/log/nginx
 
+# copy swagger files to the `/js` folder
+ADD ./dist/* /usr/share/nginx/html
+#ADD ./docker-run.sh /usr/share/nginx/
+
 
 EXPOSE 8080
 RUN chmod -R go+rwx /var/lib/nginx
