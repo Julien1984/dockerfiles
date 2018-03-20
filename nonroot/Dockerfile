@@ -16,7 +16,7 @@ RUN chmod -R go+rwx /usr/share/nginx/html
 RUN chmod -R go+rwx /var/log/nginx
 
 # copy swagger files to the `/js` folder
-ADD ./dist/* /usr/share/nginx/html
+ADD ./dist/* /usr/share/nginx/html/
 #ADD ./docker-run.sh /usr/share/nginx/
 
 
