@@ -34,9 +34,10 @@ RUN chgrp -R 0 /var/lib/nginx
 RUN chmod -R g+rwX /var/lib/nginx
 RUN chgrp -R 0 /var/lib/nginx/logs
 RUN chmod -R g+rwX /var/lib/nginx/logs
-
 RUN chgrp -R 0 /run/nginx
 RUN chmod -R g+rwX /run/nginx
+RUN chgrp -R 0  usr/share/nginx
+RUN chmod -R g+rwX /usr/share/nginx
 
 EXPOSE 8080
 USER 555
