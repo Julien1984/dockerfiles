@@ -38,7 +38,7 @@ RUN chmod -R g+rwX /var/lib/nginx/logs
 RUN chgrp -R 0 /run/nginx
 RUN chmod -R g+rwX /run/nginx
 
-
 EXPOSE 8080
+USER 555
 
 CMD ["sh", "/usr/share/nginx/docker-run.sh"]
