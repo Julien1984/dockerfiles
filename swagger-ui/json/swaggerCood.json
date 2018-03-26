@@ -1,996 +1,956 @@
 {
-  "swagger": "2.0",
-  "info": {
-    "description": "Description of API",
-    "version": "1.0.0",
-    "title": "productOrder COOD",
-    "termsOfService": "external hyperlink",
-    "contact": {
-      "email": "COOD_DevTeam_Tibco@orange.com"
-    },
-    "license": {
-      "name": "Name or type of license",
-      "url": "http://external.hyperlink"
-    }
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Preprocessor.application"
   },
-  "host": "126.201.54.17:9040",
-  "schemes": [
-    "http"
-  ],
-  "consumes": [
-    "application/json"
-  ],
-  "produces": [
-    "application/json"
-  ],
-  "paths": {
-    "/productOrder": {
-      "post": {
-        "tags": [
-          "Resource"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/productOrder"
-            }
+  "host" : "0.0.0.0:9040",
+  "schemes" : [ "http" ],
+  "consumes" : [ "application/json" ],
+  "produces" : [ "application/json" ],
+  "paths" : {
+    "/productOrder" : {
+      "post" : {
+        "tags" : [ "Resource" ],
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "productOrder",
+          "description" : "Sample Description",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/productOrder"
           }
-        ],
-        "responses": {
-          "200": {
-            "description": "Sample Description",
-            "schema": {
-              "$ref": "#/definitions/productOrder"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Sample Description",
+            "schema" : {
+              "$ref" : "#/definitions/productOrder"
             }
           },
-          "201": {
-            "description": "Created",
-            "schema": {
-              "type": "string"
+          "201" : {
+            "description" : "Created",
+            "schema" : {
+              "type" : "string"
             }
           },
-          "500": {
-            "description": "Internal Server Error",
-            "schema": {
-              "type": "string"
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "type" : "string"
             }
           }
         }
       },
-      "patch": {
-        "tags": [
-          "Resource"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/productOrder"
-            }
+      "patch" : {
+        "tags" : [ "Resource" ],
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "productOrder",
+          "description" : "Sample Description",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/productOrder"
           }
-        ],
-        "responses": {
-          "200": {
-            "description": "Sample Description",
-            "schema": {
-              "$ref": "#/definitions/productOrder"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Sample Description",
+            "schema" : {
+              "$ref" : "#/definitions/productOrder"
             }
           },
-          "500": {
-            "description": "Internal Server Error",
-            "schema": {
-              "type": "string"
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "type" : "string"
             }
           }
         }
       }
     },
-    "/productOrder/{id}": {
-      "patch": {
-        "tags": [
-          "Resource"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
+    "/productOrder/{id}" : {
+      "patch" : {
+        "tags" : [ "Resource" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "messageBody",
+          "description" : "Sample Description",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
           }
-        ],
-        "responses": {
-          "200": {
-            "description": "Sample Description",
-            "schema": {
-              "type": "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "201" : {
+            "description" : "Created",
+            "schema" : {
+              "type" : "string"
             }
           },
-          "201": {
-            "description": "Created",
-            "schema": {
-              "type": "string"
+          "301" : {
+            "description" : "Moved Permanently",
+            "schema" : {
+              "type" : "string"
             }
           },
-          "202": {
-            "description": "Accepted",
-            "schema": {
-              "type": "string"
+          "422" : {
+            "description" : "Unprocessable Entity",
+            "schema" : {
+              "type" : "string"
             }
           },
-          "204": {
-            "description": "No Content",
-            "schema": {
-              "type": "string"
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "type" : "string"
             }
           },
-          "301": {
-            "description": "Moved Permanently",
-            "schema": {
-              "type": "string"
+          "202" : {
+            "description" : "Accepted",
+            "schema" : {
+              "type" : "string"
             }
           },
-          "303": {
-            "description": "See Other",
-            "schema": {
-              "type": "string"
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "type" : "string"
             }
           },
-          "304": {
-            "description": "Not Modified",
-            "schema": {
-              "type": "string"
+          "401" : {
+            "description" : "Unauthorized",
+            "schema" : {
+              "type" : "string"
             }
           },
-          "307": {
-            "description": "Temporary Redirect",
-            "schema": {
-              "type": "string"
+          "412" : {
+            "description" : "Precondition Failed",
+            "schema" : {
+              "type" : "string"
             }
           },
-          "400": {
-            "description": "Bad Request",
-            "schema": {
-              "type": "string"
+          "204" : {
+            "description" : "No Content",
+            "schema" : {
+              "type" : "string"
             }
           },
-          "401": {
-            "description": "Unauthorized",
-            "schema": {
-              "type": "string"
+          "303" : {
+            "description" : "See Other",
+            "schema" : {
+              "type" : "string"
             }
           },
-          "403": {
-            "description": "Forbidden",
-            "schema": {
-              "type": "string"
+          "304" : {
+            "description" : "Not Modified",
+            "schema" : {
+              "type" : "string"
             }
           },
-          "404": {
-            "description": "Not Found",
-            "schema": {
-              "type": "string"
+          "403" : {
+            "description" : "Forbidden",
+            "schema" : {
+              "type" : "string"
             }
           },
-          "406": {
-            "description": "Not Acceptable",
-            "schema": {
-              "type": "string"
+          "415" : {
+            "description" : "Unsupported Media Type",
+            "schema" : {
+              "type" : "string"
             }
           },
-          "409": {
-            "description": "Conflict",
-            "schema": {
-              "type": "string"
+          "503" : {
+            "description" : "Service Unavailable",
+            "schema" : {
+              "type" : "string"
             }
           },
-          "412": {
-            "description": "Precondition Failed",
-            "schema": {
-              "type": "string"
+          "404" : {
+            "description" : "Not Found",
+            "schema" : {
+              "type" : "string"
             }
           },
-          "415": {
-            "description": "Unsupported Media Type",
-            "schema": {
-              "type": "string"
+          "307" : {
+            "description" : "Temporary Redirect",
+            "schema" : {
+              "type" : "string"
             }
           },
-          "422": {
-            "description": "Unprocessable Entity",
-            "schema": {
-              "type": "string"
+          "406" : {
+            "description" : "Not Acceptable",
+            "schema" : {
+              "type" : "string"
             }
           },
-          "500": {
-            "description": "Internal Server Error",
-            "schema": {
-              "type": "string"
-            }
-          },
-          "503": {
-            "description": "Service Unavailable",
-            "schema": {
-              "type": "string"
+          "409" : {
+            "description" : "Conflict",
+            "schema" : {
+              "type" : "string"
             }
           }
         }
-      },
-      "parameters": [
-        {
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "type": "string"
+      }
+    },
+    "/productOrderEvent" : {
+      "post" : {
+        "tags" : [ "productOrderEvent" ],
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "productOrderEvent",
+          "description" : "Sample Description",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/productOrderEvent"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Sample Description"
+          },
+          "201" : {
+            "description" : "Created",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "schema" : {
+              "type" : "string"
+            }
+          }
         }
-      ]
+      }
     }
   },
-  "securityDefinitions": {
-    "basicAuth": {
-      "type": "basic"
+  "securityDefinitions" : {
+    "basicAuth" : {
+      "type" : "basic"
     }
   },
-  "definitions": {
-    "productOrder": {
-      "type": "object",
-      "required": [
-        "id"
-      ],
-      "properties": {
-        "id": {
-          "type": "string"
+  "definitions" : {
+    "productOrderEvent" : {
+      "type" : "object",
+      "properties" : { }
+    },
+    "productOrder" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
         },
-        "category": {
-          "type": "string"
+        "category" : {
+          "type" : "string"
         },
-        "completionDate": {
-          "type": "string",
-          "format": "date-time",
-          "example": ".."
+        "completionDate" : {
+          "type" : "string",
+          "format" : "date-time"
         },
-        "description": {
-          "type": "string"
+        "description" : {
+          "type" : "string"
         },
-        "expectedCompletionDate": {
-          "type": "string",
-          "format": "date-time",
-          "example": "2018-03-15T00:00:00+01:00"
+        "expectedCompletionDate" : {
+          "type" : "string",
+          "format" : "date-time"
         },
-        "externalId": {
-          "type": "string",
-          "description": "Unikalny identyfikator zamówienia",
-          "example": "TEL00001234567"
+        "externalId" : {
+          "type" : "string"
         },
-        "href": {
-          "type": "string"
+        "href" : {
+          "type" : "string"
         },
-        "notificationContact": {
-          "type": "string"
+        "notificationContact" : {
+          "type" : "string"
         },
-        "orderDate": {
-          "type": "string",
-          "format": "date-time",
-          "example": "2018-03-15T00:00:00+01:00"
+        "orderDate" : {
+          "type" : "string",
+          "format" : "date-time"
         },
-        "priority": {
-          "description": "Obecnie nieinterpretowany",
-          "type": "integer",
-          "format": "int32",
-          "pattern": "number",
-          "example": "4"
+        "priority" : {
+          "type" : "string"
         },
-        "requestedCompletionDate": {
-          "type": "string",
-          "format": "date-time",
-          "example": "2018-03-15T00:00:00+01:00"
+        "requestedCompletionDate" : {
+          "type" : "string",
+          "format" : "date-time"
         },
-        "requestedStartDate": {
-          "type": "string",
-          "format": "date-time"
+        "requestedStartDate" : {
+          "type" : "string",
+          "format" : "date-time"
         },
-        "reverseEndDate": {
-          "type": "string",
-          "format": "date-time"
+        "reverseEndDate" : {
+          "type" : "string",
+          "format" : "date-time"
         },
-        "state": {
-          "type": "string",
-          "enum": [
-            "Cancelled",
-            "Partial",
-            "Completed",
-            "InProgress",
-            "Pending",
-            "Held",
-            "Failed",
-            "Temporary",
-            "Rejected",
-            "Acknowledged"
-          ]
+        "state" : {
+          "type" : "string",
+          "enum" : [ "Temporary", "Cancelled", "Completed", "InProgress", "Rejected", "Pending", "Partial", "Acknowledged", "Failed", "Held" ]
         },
-        "additionalParameter": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/additionalParameter"
-          },
-          "example": [{"name": "sourceId", "value": "PTK_OPTIPOS"},{"name": "sourceId", "value": "ONLINE"}]
-        },
-        "note": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/note"
+        "additionalParameter" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/additionalParameter"
           }
         },
-        "orderItem": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/orderItem"
+        "note" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/note"
           }
         },
-        "relatedParty": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/relatedParty"
+        "orderItem" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/orderItem"
+          }
+        },
+        "relatedParty" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/relatedParty"
           }
         }
       }
     },
-    "additionalParameter": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string",
-          "example": "sourceId"
+    "additionalParameter" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string"
         },
-        "value": {
-          "type": "string",
-          "example": "PTK_OPTIPOS"
-          }
-      }
-    },
-    "note": {
-      "type": "object",
-      "properties": {
-        "author": {
-          "type": "string"
-        },
-        "date": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "text": {
-          "type": "string"
-        },
-        "type": {
-          "type": "string"
+        "value" : {
+          "type" : "string"
         }
       }
     },
-    "orderItem": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "example": "jeden"
+    "note" : {
+      "type" : "object",
+      "properties" : {
+        "author" : {
+          "type" : "string"
         },
-        "action": {
-          "type": "string"
+        "date" : {
+          "type" : "string",
+          "format" : "date-time"
         },
-        "state": {
-          "type": "string",
-          "enum": [
-            "Pending",
-            "Partial",
-            "Held",
-            "InProgress",
-            "Cancelled",
-            "Failed",
-            "Completed",
-            "Rejected",
-            "Acknowledged"
-          ]
+        "text" : {
+          "type" : "string"
         },
-        "additionalParameter": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/additionalParameter"
-          }
-        },
-        "appointment": {
-          "$ref": "#/definitions/TTimePeriod"
-        },
-        "billingAccount": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/billingAccount"
-          }
-        },
-        "consent": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/consent"
-          }
-        },
-        "orderItemPrice": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/orderItemPrice"
-          }
-        },
-        "orderItemRelationship": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/orderItemRelationship"
-          }
-        },
-        "product": {
-          "$ref": "#/definitions/TProductRef"
-        },
-        "productOffering": {
-          "$ref": "#/definitions/TProductOfferingRef"
+        "type" : {
+          "type" : "string"
         }
       }
     },
-    "relatedParty": {
-      "type": "object",
-      "properties": {
-        "role": {
-          "type": "string"
+    "orderItem" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
         },
-        "id": {
-          "type": "string"
+        "action" : {
+          "type" : "string"
         },
-        "href": {
-          "type": "string"
+        "state" : {
+          "type" : "string",
+          "enum" : [ "Held", "Partial", "Completed", "InProgress", "Acknowledged", "Pending", "Rejected", "Cancelled", "Failed" ]
         },
-        "name": {
-          "type": "string"
+        "additionalParameter" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/additionalParameter"
+          }
         },
-        "validFor": {
-          "$ref": "#/definitions/TTimePeriod"
+        "appointment" : {
+          "$ref" : "#/definitions/TTimePeriod"
         },
-        "contactMedium": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/contactMedium"
+        "billingAccount" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/billingAccount"
+          }
+        },
+        "consent" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/consent"
+          }
+        },
+        "orderItemPrice" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/orderItemPrice"
+          }
+        },
+        "orderItemRelationship" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/orderItemRelationship"
+          }
+        },
+        "product" : {
+          "$ref" : "#/definitions/TProductRef"
+        },
+        "productOffering" : {
+          "$ref" : "#/definitions/TProductOfferingRef"
+        }
+      }
+    },
+    "relatedParty" : {
+      "type" : "object",
+      "properties" : {
+        "role" : {
+          "type" : "string"
+        },
+        "id" : {
+          "type" : "string"
+        },
+        "href" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "validFor" : {
+          "$ref" : "#/definitions/TTimePeriod"
+        },
+        "contactMedium" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/contactMedium"
           }
         }
       }
     },
-    "TTimePeriod": {
-      "type": "object",
-      "properties": {
-        "startDateTime": {
-          "type": "string",
-          "format": "date-time"
+    "TTimePeriod" : {
+      "type" : "object",
+      "properties" : {
+        "startDateTime" : {
+          "type" : "string",
+          "format" : "date-time"
         },
-        "endDateTime": {
-          "type": "string",
-          "format": "date-time"
+        "endDateTime" : {
+          "type" : "string",
+          "format" : "date-time"
         }
       }
     },
-    "billingAccount": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
+    "billingAccount" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
         },
-        "href": {
-          "type": "string"
+        "href" : {
+          "type" : "string"
         },
-        "name": {
-          "type": "string"
+        "name" : {
+          "type" : "string"
         }
       }
     },
-    "consent": {
-      "type": "object",
-      "required": [
-        "consentSpecification"
-      ],
-      "properties": {
-        "id": {
-          "type": "string"
+    "consent" : {
+      "required" : [ "consentSpecification" ],
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
         },
-        "href": {
-          "type": "string"
+        "href" : {
+          "type" : "string"
         },
-        "name": {
-          "type": "string"
+        "name" : {
+          "type" : "string"
         },
-        "unitOfMeasure": {
-          "type": "string"
+        "unitOfMeasure" : {
+          "type" : "string"
         },
-        "validFor": {
-          "$ref": "#/definitions/TTimePeriod"
+        "validFor" : {
+          "$ref" : "#/definitions/TTimePeriod"
         },
-        "value": {
-          "type": "string"
+        "value" : {
+          "type" : "string"
         },
-        "valueType": {
-          "type": "string"
+        "valueType" : {
+          "type" : "string"
         },
-        "consentSpecification": {
-          "$ref": "#/definitions/TConsentSpecification"
+        "consentSpecification" : {
+          "$ref" : "#/definitions/TConsentSpecification"
         }
       }
     },
-    "orderItemPrice": {
-      "type": "object",
-      "properties": {
-        "description": {
-          "type": "string"
+    "orderItemPrice" : {
+      "type" : "object",
+      "properties" : {
+        "description" : {
+          "type" : "string"
         },
-        "name": {
-          "type": "string"
+        "name" : {
+          "type" : "string"
         },
-        "priceType": {
-          "type": "string"
+        "priceType" : {
+          "type" : "string"
         },
-        "recurringChargePeriod": {
-          "type": "string"
+        "recurringChargePeriod" : {
+          "type" : "string"
         },
-        "unitOfMeasure": {
-          "type": "string"
+        "unitOfMeasure" : {
+          "type" : "string"
         },
-        "price": {
-          "$ref": "#/definitions/TPrice"
+        "price" : {
+          "$ref" : "#/definitions/TPrice"
         },
-        "orderItemPriceAlteration": {
-          "$ref": "#/definitions/TOrderItemPriceAlteration"
+        "orderItemPriceAlteration" : {
+          "$ref" : "#/definitions/TOrderItemPriceAlteration"
         }
       }
     },
-    "orderItemRelationship": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
+    "orderItemRelationship" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
         },
-        "type": {
-          "type": "string"
+        "type" : {
+          "type" : "string"
         }
       }
     },
-    "TProductRef": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
+    "TProductRef" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
         },
-        "href": {
-          "type": "string"
+        "href" : {
+          "type" : "string"
         },
-        "characteristic": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/characteristic"
+        "characteristic" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/characteristic"
           }
         },
-        "document": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/document"
+        "document" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/document"
           }
         },
-        "place": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/place"
+        "place" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/place"
           }
         },
-        "productRelationship": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/productRelationship"
+        "productRelationship" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/productRelationship"
           }
         },
-        "productSpecification": {
-          "$ref": "#/definitions/TProductSpecificationRef"
+        "productSpecification" : {
+          "$ref" : "#/definitions/TProductSpecificationRef"
         },
-        "relatedParty": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/relatedParty"
+        "relatedParty" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/relatedParty"
           }
         }
       }
     },
-    "TProductOfferingRef": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
+    "TProductOfferingRef" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
         },
-        "href": {
-          "type": "string"
+        "href" : {
+          "type" : "string"
         },
-        "name": {
-          "type": "string"
+        "name" : {
+          "type" : "string"
         },
-        "bundledProductOffering": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/bundledProductOffering"
+        "bundledProductOffering" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/bundledProductOffering"
           }
         },
-        "productOfferingTerm": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/productOfferingTerm"
-          }
-        }
-      }
-    },
-    "contactMedium": {
-      "type": "object",
-      "properties": {
-        "preffered": {
-          "type": "boolean"
-        },
-        "type": {
-          "type": "string"
-        },
-        "validFor": {
-          "$ref": "#/definitions/TTimePeriod"
-        },
-        "telephone": {
-          "$ref": "#/definitions/TTelephoneNumber"
-        },
-        "email": {
-          "$ref": "#/definitions/TEmailContact"
-        }
-      }
-    },
-    "TConsentSpecification": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "derivationFormula": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "extensible": {
-          "type": "boolean"
-        },
-        "href": {
-          "type": "string"
-        },
-        "maxCardinality": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "minCardinality": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "name": {
-          "type": "string"
-        },
-        "privacyCategory": {
-          "type": "string"
-        },
-        "privacyType": {
-          "$ref": "#/definitions/TTimePeriod"
-        },
-        "privacyUsagePurpose": {
-          "type": "string"
-        },
-        "unique": {
-          "type": "string"
-        },
-        "validFor": {
-          "$ref": "#/definitions/TTimePeriod"
-        },
-        "valueType": {
-          "type": "string"
-        }
-      }
-    },
-    "TPrice": {
-      "type": "object",
-      "properties": {
-        "dutyFreeAmount": {
-          "type": "number",
-          "format": "float"
-        },
-        "percentage": {
-          "type": "number",
-          "format": "float"
-        },
-        "taxIncludedAmount": {
-          "type": "number",
-          "format": "float"
-        },
-        "taxRate": {
-          "type": "number",
-          "format": "float"
-        }
-      }
-    },
-    "TOrderItemPriceAlteration": {
-      "type": "object",
-      "properties": {
-        "applicationDuration": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "description": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "priceCondition": {
-          "type": "string"
-        },
-        "priceType": {
-          "type": "string"
-        },
-        "priority": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "recurringChargePeriod": {
-          "type": "string"
-        },
-        "unitOfMeasure": {
-          "type": "string"
-        },
-        "validFor": {
-          "$ref": "#/definitions/TTimePeriod"
-        },
-        "price": {
-          "$ref": "#/definitions/TPrice"
-        }
-      }
-    },
-    "characteristic": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "value": {
-          "type": "string"
-        }
-      }
-    },
-    "document": {
-      "type": "object",
-      "properties": {
-        "barcode": {
-          "type": "string"
-        },
-        "docName": {
-          "type": "string"
-        },
-        "docType": {
-          "type": "string"
-        },
-        "printMode": {
-          "type": "string"
-        },
-        "repositorySource": {
-          "type": "string"
-        }
-      }
-    },
-    "place": {
-      "type": "object",
-      "properties": {
-        "href": {
-          "type": "string"
-        },
-        "role": {
-          "type": "string"
-        },
-        "address": {
-          "$ref": "#/definitions/TPolishPropertyAddress"
-        }
-      }
-    },
-    "productRelationship": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string"
-        },
-        "product": {
-          "$ref": "#/definitions/TProductRef"
-        }
-      }
-    },
-    "TProductSpecificationRef": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "href": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "version": {
-          "type": "string"
-        },
-        "type": {
-          "type": "string"
-        }
-      }
-    },
-    "bundledProductOffering": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "href": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "bundledProductOffering": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/bundledProductOffering"
-          }
-        },
-        "productOfferingTerm": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/productOfferingTerm"
+        "productOfferingTerm" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/productOfferingTerm"
           }
         }
       }
     },
-    "productOfferingTerm": {
-      "type": "object",
-      "properties": {
-        "description": {
-          "type": "string"
+    "contactMedium" : {
+      "type" : "object",
+      "properties" : {
+        "preffered" : {
+          "type" : "boolean"
         },
-        "duration": {
-          "type": "string"
+        "type" : {
+          "type" : "string"
         },
-        "name": {
-          "type": "string"
+        "validFor" : {
+          "$ref" : "#/definitions/TTimePeriod"
         },
-        "validFor": {
-          "$ref": "#/definitions/TTimePeriod"
+        "telephone" : {
+          "$ref" : "#/definitions/TTelephoneNumber"
+        },
+        "email" : {
+          "$ref" : "#/definitions/TEmailContact"
         }
       }
     },
-    "TTelephoneNumber": {
-      "type": "object",
-      "properties": {
-        "number": {
-          "type": "string"
+    "TConsentSpecification" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
         },
-        "type": {
-          "type": "string"
+        "derivationFormula" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "extensible" : {
+          "type" : "boolean"
+        },
+        "href" : {
+          "type" : "string"
+        },
+        "maxCardinality" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "minCardinality" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "privacyCategory" : {
+          "type" : "string"
+        },
+        "privacyType" : {
+          "$ref" : "#/definitions/TTimePeriod"
+        },
+        "privacyUsagePurpose" : {
+          "type" : "string"
+        },
+        "unique" : {
+          "type" : "string"
+        },
+        "validFor" : {
+          "$ref" : "#/definitions/TTimePeriod"
+        },
+        "valueType" : {
+          "type" : "string"
         }
       }
     },
-    "TEmailContact": {
-      "type": "object",
-      "properties": {
-        "eMailAddress": {
-          "type": "string"
+    "TPrice" : {
+      "type" : "object",
+      "properties" : {
+        "dutyFreeAmount" : {
+          "type" : "number",
+          "format" : "float"
         },
-        "type": {
-          "type": "string"
+        "percentage" : {
+          "type" : "number",
+          "format" : "float"
+        },
+        "taxIncludedAmount" : {
+          "type" : "number",
+          "format" : "float"
+        },
+        "taxRate" : {
+          "type" : "number",
+          "format" : "float"
         }
       }
     },
-    "TPolishPropertyAddress": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string"
+    "TOrderItemPriceAlteration" : {
+      "type" : "object",
+      "properties" : {
+        "applicationDuration" : {
+          "type" : "integer",
+          "format" : "int32"
         },
-        "country": {
-          "type": "string"
+        "description" : {
+          "type" : "string"
         },
-        "locality": {
-          "type": "string"
+        "name" : {
+          "type" : "string"
         },
-        "streetName": {
-          "type": "string"
+        "priceCondition" : {
+          "type" : "string"
         },
-        "streetType": {
-          "type": "string"
+        "priceType" : {
+          "type" : "string"
         },
-        "streetNr": {
-          "type": "string"
+        "priority" : {
+          "type" : "integer",
+          "format" : "int32"
         },
-        "localNr": {
-          "type": "string"
+        "recurringChargePeriod" : {
+          "type" : "string"
         },
-        "postcode": {
-          "type": "string"
+        "unitOfMeasure" : {
+          "type" : "string"
         },
-        "stateOrProvince": {
-          "type": "string"
+        "validFor" : {
+          "$ref" : "#/definitions/TTimePeriod"
         },
-        "community": {
-          "type": "string"
-        },
-        "district": {
-          "type": "string"
-        },
-        "internalAddress": {
-          "type": "string"
-        },
-        "latitude": {
-          "type": "number"
-        },
-        "longtitude": {
-          "type": "number"
-        },
-        "CBSReference": {
-          "$ref": "#/definitions/TCBSReference"
+        "price" : {
+          "$ref" : "#/definitions/TPrice"
         }
       }
     },
-    "TCBSReference": {
-      "type": "object",
-      "properties": {
-        "communityId": {
-          "type": "string"
+    "characteristic" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string"
         },
-        "countryId": {
-          "type": "string"
+        "value" : {
+          "type" : "string"
+        }
+      }
+    },
+    "document" : {
+      "type" : "object",
+      "properties" : {
+        "barcode" : {
+          "type" : "string"
         },
-        "districtId": {
-          "type": "string"
+        "docName" : {
+          "type" : "string"
         },
-        "localityId": {
-          "type": "string"
+        "docType" : {
+          "type" : "string"
         },
-        "postalId": {
-          "type": "string"
+        "printMode" : {
+          "type" : "string"
         },
-        "stateOrProvinceId": {
-          "type": "string"
+        "repositorySource" : {
+          "type" : "string"
+        }
+      }
+    },
+    "place" : {
+      "type" : "object",
+      "properties" : {
+        "href" : {
+          "type" : "string"
         },
-        "streetNameId": {
-          "type": "string"
+        "role" : {
+          "type" : "string"
         },
-        "streetTypeId": {
-          "type": "string"
+        "address" : {
+          "$ref" : "#/definitions/TPolishPropertyAddress"
+        }
+      }
+    },
+    "productRelationship" : {
+      "type" : "object",
+      "properties" : {
+        "type" : {
+          "type" : "string"
+        },
+        "product" : {
+          "$ref" : "#/definitions/TProductRef"
+        }
+      }
+    },
+    "TProductSpecificationRef" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "href" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "version" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string"
+        }
+      }
+    },
+    "bundledProductOffering" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "href" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "bundledProductOffering" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/bundledProductOffering"
+          }
+        },
+        "productOfferingTerm" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/productOfferingTerm"
+          }
+        }
+      }
+    },
+    "productOfferingTerm" : {
+      "type" : "object",
+      "properties" : {
+        "description" : {
+          "type" : "string"
+        },
+        "duration" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "validFor" : {
+          "$ref" : "#/definitions/TTimePeriod"
+        }
+      }
+    },
+    "TTelephoneNumber" : {
+      "type" : "object",
+      "properties" : {
+        "number" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string"
+        }
+      }
+    },
+    "TEmailContact" : {
+      "type" : "object",
+      "properties" : {
+        "eMailAddress" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string"
+        }
+      }
+    },
+    "TPolishPropertyAddress" : {
+      "type" : "object",
+      "properties" : {
+        "type" : {
+          "type" : "string"
+        },
+        "country" : {
+          "type" : "string"
+        },
+        "locality" : {
+          "type" : "string"
+        },
+        "streetName" : {
+          "type" : "string"
+        },
+        "streetType" : {
+          "type" : "string"
+        },
+        "streetNr" : {
+          "type" : "string"
+        },
+        "localNr" : {
+          "type" : "string"
+        },
+        "postcode" : {
+          "type" : "string"
+        },
+        "stateOrProvince" : {
+          "type" : "string"
+        },
+        "community" : {
+          "type" : "string"
+        },
+        "district" : {
+          "type" : "string"
+        },
+        "internalAddress" : {
+          "type" : "string"
+        },
+        "latitude" : {
+          "type" : "number"
+        },
+        "longtitude" : {
+          "type" : "number"
+        },
+        "CBSReference" : {
+          "$ref" : "#/definitions/TCBSReference"
+        }
+      }
+    },
+    "TCBSReference" : {
+      "type" : "object",
+      "properties" : {
+        "communityId" : {
+          "type" : "string"
+        },
+        "countryId" : {
+          "type" : "string"
+        },
+        "districtId" : {
+          "type" : "string"
+        },
+        "localityId" : {
+          "type" : "string"
+        },
+        "postalId" : {
+          "type" : "string"
+        },
+        "stateOrProvinceId" : {
+          "type" : "string"
+        },
+        "streetNameId" : {
+          "type" : "string"
+        },
+        "streetTypeId" : {
+          "type" : "string"
         }
       }
     }
