@@ -5,7 +5,7 @@ MAINTAINER Pawel Mazurek
 ENV VERSION "v2.2.10"
 ENV FOLDER "swagger-ui-2.2.10"
 ENV API_URL "http://petstore.swagger.io/v2/swagger.json"
-ENV API_URLS  [{name:\"ExampleSpotify\", url:\"https://github.com/APIs-guru/openapi-directory/blob/master/APIs/spotify.com/v1/swagger.yaml\"},{name:\"productOrderCood\", url:\"/json/swaggerCood.json\"},{name:\"Velocity\", url:\"/json/velocity.json\"}]
+ENV API_URLS  [{name:\"COOD\", url:\"/json/swaggerCood.json\"},{name:\"VELOCITY\", url:\"/json/velocity.json\"}]
 ENV OAUTH_CLIENT_ID "**None**"
 ENV OAUTH_CLIENT_SECRET "**None**"
 ENV OAUTH_REALM "**None**"
