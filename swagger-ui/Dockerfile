@@ -5,7 +5,9 @@ MAINTAINER Pawel Mazurek
 ENV VERSION "v2.2.10"
 ENV FOLDER "swagger-ui-2.2.10"
 ENV API_URL "http://petstore.swagger.io/v2/swagger.json"
-ENV API_URLS  [{name:\"COOD\", url:\"http://swagerui.kmt.orange.com/json/swaggerCood.json\"},{name:\"VELOCITY\", url:\"http://swagerui.kmt.orange.com/json/velocity.json\"}]
+ENV API_URLS  [{name:\"COOD\", url:\"http://swagerui.kmt.orange.com/json/swaggerCood.json\"},{name:\"VELOCITY\", url:\"http://swagerui.kmt.orange.com/json/velocity.json\"}, {name:\"NRA - Resource Inventory\", url:\"http://swagerui.kmt.orange.com/json/ResourceInventoryManagement-API-v0.3.0.yaml\"}]
+
+
 ENV OAUTH_CLIENT_ID "**None**"
 ENV OAUTH_CLIENT_SECRET "**None**"
 ENV OAUTH_REALM "**None**"

@@ -1,0 +1,750 @@
+swagger: '2.0'
+info:
+  description: >-
+    The intent of this API is to provide a consistent/standardized mechanism to
+    query and manipulate the Resource inventory.
+  version: 0.3.0_inProgress
+  title: API ResourceInventoryManagement
+  x-logo:
+    url: /redoc/logo.png
+    backgroundColor: '#FFFFFF'
+host: api.orange.com
+basePath: /
+schemes:
+  - http
+consumes:
+  - application/json;charset=utf-8
+produces:
+  - application/json;charset=utf-8
+tags:
+  - name: LogicalResource
+    description: API for managing logical resource inventory
+  - name: Resource
+    description: Abstract resource from inventory. As an instance it can be sim or msisdn.
+paths:
+  /logicalResource:
+    post:
+      tags:
+        - LogicalResource
+      operationId: logicalResourceCreate
+      summary: Create new MSISDN
+      description: |-
+        Create a new (port in) MSISDN into inventory management platform (nRA)
+
+        Specific business errors for current operation will be encapsulated in
+
+        HTTP Response 499 Business error occured
+
+         - 1010: MSISDN number exists in billing system, but is missing from inventory management platform
+           
+         - 1011: MSISDN number exists in inventory management platform, but is missing from billing system
+           
+         - 1013: MSISDN State missmatch  between inventory management platform and billing system
+           
+         - 1018: Unable to insert MSISDN into billing system
+           
+         - 1019: Unable to insert MSISDN into billing system
+           
+         - 1020: Unable to insert MSISDN into billing system
+           
+      deprecated: false
+      parameters:
+        - name: LogicalResource
+          required: true
+          in: body
+          description: ''
+          schema:
+            $ref: '#/definitions/LogicalResource'
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/ResourceRef'
+        '400':
+          description: |-
+            Bad Request
+
+            List of supported error codes:
+            - 20: Invalid URL parameter value
+            - 21: Missing body
+            - 22: Invalid body
+            - 23: Missing body field
+            - 24: Invalid body field
+            - 25: Missing header
+            - 26: Invalid header value
+            - 27: Missing query-string parameter
+            - 28: Invalid query-string parameter value
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: |-
+            Unauthorized
+
+            List of supported error codes:
+            - 40: Missing credentials
+            - 41: Invalid credentials
+            - 42: Expired credentials
+          schema:
+            $ref: '#/definitions/Error'
+        '403':
+          description: |-
+            Forbidden
+
+            List of supported error codes:
+            - 50: Access denied
+            - 51: Forbidden requester
+            - 52: Forbidden user
+            - 53: Too many requests
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          description: |-
+            Not Found
+
+            List of supported error codes:
+            - 60: Resource not found
+          schema:
+            $ref: '#/definitions/Error'
+        '499':
+          description: |-
+            Business error occured
+
+
+
+            Specific encapsulated business errors for current operation
+
+             - 1010: MSISDN number exists in billing system, but is missing from inventory management platform
+               
+             - 1011: MSISDN number exists in inventory management platform, but is missing from billing system
+               
+             - 1013: MSISDN State missmatch  between inventory management platform and billing system
+               
+             - 1018: Unable to insert MSISDN into billing system
+               
+             - 1019: Unable to insert MSISDN into billing system
+               
+             - 1020: Unable to insert MSISDN into billing system
+               
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: |+
+            Internal Server Error
+
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          description: |+
+            Service Unavailable
+
+          schema:
+            $ref: '#/definitions/Error'
+  '/logicalResource/{logicalResourceId}':
+    get:
+      tags:
+        - LogicalResource
+      operationId: logicalResourceGet
+      summary: Get logical resource details
+      description: |
+        Retrieve SIM card details: PUK, PUK2.
+
+        Specific business errors for current operation will be encapsulated in
+
+        HTTP Response 499 Business error occured
+      deprecated: false
+      parameters:
+        - name: logicalResourceId
+          in: path
+          required: true
+          type: string
+          description: |-
+            MSISDN number without country code if resource type is msisdn
+            SIM IMSI number if resource type is sim
+          default: '10'
+        - name: resourceType
+          in: query
+          required: true
+          type: string
+          description: ''
+          default: SIM
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/LogicalResource'
+        '400':
+          description: |-
+            Bad Request
+
+            List of supported error codes:
+            - 20: Invalid URL parameter value
+            - 21: Missing body
+            - 22: Invalid body
+            - 23: Missing body field
+            - 24: Invalid body field
+            - 25: Missing header
+            - 26: Invalid header value
+            - 27: Missing query-string parameter
+            - 28: Invalid query-string parameter value
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: |-
+            Unauthorized
+
+            List of supported error codes:
+            - 40: Missing credentials
+            - 41: Invalid credentials
+            - 42: Expired credentials
+          schema:
+            $ref: '#/definitions/Error'
+        '403':
+          description: |-
+            Forbidden
+
+            List of supported error codes:
+            - 50: Access denied
+            - 51: Forbidden requester
+            - 52: Forbidden user
+            - 53: Too many requests
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          description: |-
+            Not Found
+
+            List of supported error codes:
+            - 60: Resource not found
+          schema:
+            $ref: '#/definitions/Error'
+        '499':
+          description: |+
+            Business error occured
+
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: |+
+            Internal Server Error
+
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          description: |+
+            Service Unavailable
+
+          schema:
+            $ref: '#/definitions/Error'
+    put:
+      tags:
+        - LogicalResource
+      operationId: logicalResourceUpdate
+      summary: Reserve logical resource
+      description: |-
+        Make a reservation for a MSISDN number or SIM card IMSI number.
+
+        Specific business errors for current operation will be encapsulated in
+
+        HTTP Response 499 Business error occured
+
+         - 1010: MSISDN number exists in billing system, but is missing from inventory management platform
+           
+         - 1011: MSISDN number exists in inventory management platform, but is missing from billing system
+           
+         - 1013: MSISDN State missmatch  between inventory management platform and billing system
+           
+      deprecated: false
+      parameters:
+        - name: logicalResourceId
+          in: path
+          required: true
+          type: string
+          description: |-
+            MSISDN number without country code if resource type is msisdn
+            SIM IMSI number if resource type is sim
+        - name: LogicalResource
+          required: true
+          in: body
+          description: ''
+          schema:
+            $ref: '#/definitions/LogicalResource'
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/ResourceRef'
+        '400':
+          description: |-
+            Bad Request
+
+            List of supported error codes:
+            - 20: Invalid URL parameter value
+            - 21: Missing body
+            - 22: Invalid body
+            - 23: Missing body field
+            - 24: Invalid body field
+            - 25: Missing header
+            - 26: Invalid header value
+            - 27: Missing query-string parameter
+            - 28: Invalid query-string parameter value
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: |-
+            Unauthorized
+
+            List of supported error codes:
+            - 40: Missing credentials
+            - 41: Invalid credentials
+            - 42: Expired credentials
+          schema:
+            $ref: '#/definitions/Error'
+        '403':
+          description: |-
+            Forbidden
+
+            List of supported error codes:
+            - 50: Access denied
+            - 51: Forbidden requester
+            - 52: Forbidden user
+            - 53: Too many requests
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          description: |-
+            Not Found
+
+            List of supported error codes:
+            - 60: Resource not found
+          schema:
+            $ref: '#/definitions/Error'
+        '499':
+          description: |-
+            Business error occured
+
+
+
+            Specific encapsulated business errors for current operation
+
+             - 1010: MSISDN number exists in billing system, but is missing from inventory management platform
+               
+             - 1011: MSISDN number exists in inventory management platform, but is missing from billing system
+               
+             - 1013: MSISDN State missmatch  between inventory management platform and billing system
+               
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: |+
+            Internal Server Error
+
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          description: |+
+            Service Unavailable
+
+          schema:
+            $ref: '#/definitions/Error'
+    patch:
+      tags:
+        - LogicalResource
+      operationId: logicalResourcePatch
+      summary: Change logical resource state
+      description: |-
+        Update current state of the MSISDN number or SIM card.
+
+        Specific business errors for current operation will be encapsulated in
+
+        HTTP Response 499 Business error occured
+
+         - 1010: MSISDN number exists in billing system, but is missing from inventory management platform
+           
+         - 1011: MSISDN number exists in inventory management platform, but is missing from billing system
+           
+         - 1013: MSISDN State missmatch  between inventory management platform and billing system
+           
+      deprecated: false
+      parameters:
+        - name: logicalResourceId
+          in: path
+          required: true
+          type: string
+          description: |-
+            MSISDN number without country code if resource type is msisdn
+            SIM IMSI number if resource type is sim
+        - name: PatchResource
+          required: true
+          in: body
+          description: ''
+          schema:
+            $ref: '#/definitions/PatchResource'
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/ResourceRef'
+        '400':
+          description: |-
+            Bad Request
+
+            List of supported error codes:
+            - 20: Invalid URL parameter value
+            - 21: Missing body
+            - 22: Invalid body
+            - 23: Missing body field
+            - 24: Invalid body field
+            - 25: Missing header
+            - 26: Invalid header value
+            - 27: Missing query-string parameter
+            - 28: Invalid query-string parameter value
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: |-
+            Unauthorized
+
+            List of supported error codes:
+            - 40: Missing credentials
+            - 41: Invalid credentials
+            - 42: Expired credentials
+          schema:
+            $ref: '#/definitions/Error'
+        '403':
+          description: |-
+            Forbidden
+
+            List of supported error codes:
+            - 50: Access denied
+            - 51: Forbidden requester
+            - 52: Forbidden user
+            - 53: Too many requests
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          description: |-
+            Not Found
+
+            List of supported error codes:
+            - 60: Resource not found
+          schema:
+            $ref: '#/definitions/Error'
+        '499':
+          description: |-
+            Business error occured
+
+
+
+            Specific encapsulated business errors for current operation
+
+             - 1010: MSISDN number exists in billing system, but is missing from inventory management platform
+               
+             - 1011: MSISDN number exists in inventory management platform, but is missing from billing system
+               
+             - 1013: MSISDN State missmatch  between inventory management platform and billing system
+               
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: |+
+            Internal Server Error
+
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          description: |+
+            Service Unavailable
+
+          schema:
+            $ref: '#/definitions/Error'
+  /logicalResource/MSISDN:
+    get:
+      tags:
+        - LogicalResource
+      operationId: logicalResourceGetNumbers
+      summary: Get MSISDN numbers for reservation
+      description: |
+
+
+        Specific business errors for current operation will be encapsulated in
+
+        HTTP Response 499 Business error occured
+      deprecated: false
+      parameters:
+        - name: limit
+          required: true
+          in: query
+          description: Show at most a given number of MSISDNs
+          type: integer
+          format: int32
+          default: 10
+          maximum: 100
+        - name: reservationTime
+          required: false
+          in: query
+          description: Reservation time in seconds
+          type: integer
+          format: int32
+          default: 300
+          maximum: 900
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/LogicalResource'
+        '400':
+          description: |-
+            Bad Request
+
+            List of supported error codes:
+            - 20: Invalid URL parameter value
+            - 21: Missing body
+            - 22: Invalid body
+            - 23: Missing body field
+            - 24: Invalid body field
+            - 25: Missing header
+            - 26: Invalid header value
+            - 27: Missing query-string parameter
+            - 28: Invalid query-string parameter value
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: |-
+            Unauthorized
+
+            List of supported error codes:
+            - 40: Missing credentials
+            - 41: Invalid credentials
+            - 42: Expired credentials
+          schema:
+            $ref: '#/definitions/Error'
+        '403':
+          description: |-
+            Forbidden
+
+            List of supported error codes:
+            - 50: Access denied
+            - 51: Forbidden requester
+            - 52: Forbidden user
+            - 53: Too many requests
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          description: |-
+            Not Found
+
+            List of supported error codes:
+            - 60: Resource not found
+          schema:
+            $ref: '#/definitions/Error'
+        '499':
+          description: |+
+            Business error occured
+
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: |+
+            Internal Server Error
+
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          description: |+
+            Service Unavailable
+
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  ErrorDetail:
+    description: ''
+    required:
+      - code
+      - message
+    type: object
+    properties:
+      code:
+        description: ''
+        type: integer
+        format: int32
+      message:
+        description: ''
+        type: string
+      description:
+        description: ''
+        type: string
+      infoURL:
+        description: ''
+        type: string
+  Error:
+    description: ''
+    required:
+      - code
+      - message
+    type: object
+    properties:
+      code:
+        description: ''
+        type: integer
+        format: int32
+      message:
+        description: ''
+        type: string
+      description:
+        description: ''
+        type: string
+      infoURL:
+        description: ''
+        type: string
+      details:
+        type: array
+        items:
+          $ref: '#/definitions/ErrorDetail'
+  Resource:
+    description: >-
+      It is an abstract entity. Its intent is to describe the common set of
+      attributes shared by all concrete resources in the inventory. (i.e. SIM,
+      MSISND)
+    allOf:
+      - $ref: '#/definitions/ResourceRef'
+      - type: object
+        properties:
+          type:
+            description: >-
+              Indicates the (class) type of resource. For physical resource this
+              will be ‘Equipment’, For logical Resource this can be 'Resource
+              Function', 'MSISDN', 'SIM'.
+            type: string
+            example: MSISDN
+          baseType:
+            description: >-
+              A string. Indicates the base (class) type of the resource. For
+              resources pf type 'MSISDN', baseType can be 'LogicalResource'.
+            type: string
+            example: LogicalResource
+          lifecycleState:
+            description: The life cycle state of the resource
+            type: string
+            example: planning
+          name:
+            description: Name of the resource
+            type: string
+          description:
+            description: Free-text description of the resource
+            type: string
+          category:
+            description: Category of the concrete resource. I.e. Silver for MSISDN
+            type: string
+          resourceRelationship:
+            type: array
+            items:
+              $ref: '#/definitions/ResourceRelationship'
+          characteristic:
+            type: array
+            items:
+              $ref: '#/definitions/ResourceCharacteristic'
+  LogicalResource:
+    description: Logical resource. I.e. MSISDN number
+    allOf:
+      - $ref: '#/definitions/Resource'
+      - required:
+          - value
+        type: object
+        properties:
+          value:
+            description: 'Concrete resource value. I.e. number for MSISDN, IMSI for SIM'
+            type: string
+            example: '501123123'
+          reservationTime:
+            description: 'Time in seconds, default is 300'
+            type: integer
+            format: int32
+            default: 300
+  ResourceRef:
+    description: ''
+    type: object
+    properties:
+      id:
+        description: ID created for the resource.
+        type: string
+        default: null
+        example: null
+      href:
+        description: Reference of the resource.
+        type: string
+        default: null
+        example: null
+  ResourceCharacteristic:
+    description: A list of resource characteristics
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        description: ''
+        type: string
+        example: HLRID
+      value:
+        description: ''
+        type: string
+        example: '12345'
+  ResourceRelationship:
+    description: Describes links with other resources
+    allOf:
+      - $ref: '#/definitions/ResourceRef'
+      - required:
+          - type
+        type: object
+        properties:
+          type:
+            description: Name of the type of the relationship.
+            type: string
+            example: contract
+          validFor:
+            description: ''
+            type: string
+            default: null
+            example: null
+          resourceRelationshipCharacteristic:
+            type: array
+            items:
+              $ref: '#/definitions/ResourceRelationshipCharacteristic'
+  ResourceRelationshipCharacteristic:
+    description: Characteristics of the related resource
+    type: object
+    properties:
+      name:
+        description: ''
+        type: string
+        example: type
+      value:
+        description: ''
+        type: string
+        example: prepaid
+  PatchResource:
+    description: Class for Patch operation
+    type: object
+    properties:
+      op:
+        description: >-
+          Name of the Operation to be performed on a resource. Options are:
+          replace, add, remove 
+        type: string
+        default: replace
+        example: replace
+      path:
+        description: >-
+          Path of the attribute to be patched in the JSON representation of the
+          resource
+        type: string
+        example: '$_.lfecycleState'
+      value:
+        description: New value of the resource attribute
+        type: array
+        items:
+          type: string
+          example: operating
