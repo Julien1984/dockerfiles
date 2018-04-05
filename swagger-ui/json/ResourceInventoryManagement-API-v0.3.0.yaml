@@ -237,117 +237,6 @@ paths:
 
           schema:
             $ref: '#/definitions/Error'
-    put:
-      tags:
-        - LogicalResource
-      operationId: logicalResourceUpdate
-      summary: Reserve logical resource
-      description: |-
-        Make a reservation for a MSISDN number or SIM card IMSI number.
-
-        Specific business errors for current operation will be encapsulated in
-
-        HTTP Response 499 Business error occured
-
-         - 1010: MSISDN number exists in billing system, but is missing from inventory management platform
-           
-         - 1011: MSISDN number exists in inventory management platform, but is missing from billing system
-           
-         - 1013: MSISDN State missmatch  between inventory management platform and billing system
-           
-      deprecated: false
-      parameters:
-        - name: logicalResourceId
-          in: path
-          required: true
-          type: string
-          description: |-
-            MSISDN number without country code if resource type is msisdn
-            SIM IMSI number if resource type is sim
-        - name: LogicalResource
-          required: true
-          in: body
-          description: ''
-          schema:
-            $ref: '#/definitions/LogicalResource'
-      responses:
-        '200':
-          description: Success
-          schema:
-            $ref: '#/definitions/ResourceRef'
-        '400':
-          description: |-
-            Bad Request
-
-            List of supported error codes:
-            - 20: Invalid URL parameter value
-            - 21: Missing body
-            - 22: Invalid body
-            - 23: Missing body field
-            - 24: Invalid body field
-            - 25: Missing header
-            - 26: Invalid header value
-            - 27: Missing query-string parameter
-            - 28: Invalid query-string parameter value
-          schema:
-            $ref: '#/definitions/Error'
-        '401':
-          description: |-
-            Unauthorized
-
-            List of supported error codes:
-            - 40: Missing credentials
-            - 41: Invalid credentials
-            - 42: Expired credentials
-          schema:
-            $ref: '#/definitions/Error'
-        '403':
-          description: |-
-            Forbidden
-
-            List of supported error codes:
-            - 50: Access denied
-            - 51: Forbidden requester
-            - 52: Forbidden user
-            - 53: Too many requests
-          schema:
-            $ref: '#/definitions/Error'
-        '404':
-          description: |-
-            Not Found
-
-            List of supported error codes:
-            - 60: Resource not found
-          schema:
-            $ref: '#/definitions/Error'
-        '499':
-          description: |-
-            Business error occured
-
-
-
-            Specific encapsulated business errors for current operation
-
-             - 1010: MSISDN number exists in billing system, but is missing from inventory management platform
-               
-             - 1011: MSISDN number exists in inventory management platform, but is missing from billing system
-               
-             - 1013: MSISDN State missmatch  between inventory management platform and billing system
-               
-          schema:
-            $ref: '#/definitions/Error'
-        '500':
-          description: |+
-            Internal Server Error
-
-          schema:
-            $ref: '#/definitions/Error'
-        '503':
-          description: |+
-            Service Unavailable
-
-          schema:
-            $ref: '#/definitions/Error'
     patch:
       tags:
         - LogicalResource
@@ -380,7 +269,9 @@ paths:
           in: body
           description: ''
           schema:
-            $ref: '#/definitions/PatchResource'
+            type: array
+            items:
+              $ref: '#/definitions/PatchResource'
       responses:
         '200':
           description: Success
